@@ -1,0 +1,48 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block encabezado %}
+    Proximas fechas disponibles
+{% endblock encabezado %}
+    
+
+
+{% block contenido %}
+<h1> Bienvenidos a la pagina de cursos y proximas fechas disponibles </h1>
+<h1> {{ titulo|upper }} - {% now 'm / d / Y' %} </h1>
+<h4>Fechas de inicio disponibles
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            
+            <th>ID</th>
+
+            <th>Nombre</th>
+
+            <th>Fecha</th>
+
+            
+
+           
+
+
+        </tr>
+    </thead>
+    <tbody>
+{% for e in fechaproximas  %}
+        <tr>
+
+            <td>{{ e.id  }}</td>
+            <td>{{ e.nombre }}</td>
+            <td>{{ e.fechaproxima }}</td>
+           
+            
+        </tr>
+
+
+{% endfor %}
+    </tbody>
+</table>
+{% endblock contenido %}
+    

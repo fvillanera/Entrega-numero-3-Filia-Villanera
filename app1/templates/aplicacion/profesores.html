@@ -1,0 +1,51 @@
+{% extends 'aplicacion/base.html' %}
+{% load static %}
+
+
+{% block encabezado %}
+    Profesores
+    <h2>Para agregar un profesor la ruta es: "localhost:8000/profesorform/"</h2>
+    <h2> Para buscar un profesor la ruta es: "localhost:8000/search_profesor/"</h2>
+{% endblock encabezado %}
+    
+
+
+{% block contenido %}
+<h1> Bienvenidos a la pagina de profesores </h1>
+<h1> {{ titulo|upper }} - {% now 'm / d / Y' %} </h1>
+<h4>Cantidad de profesores disponibles ahora mismo : {{profesores|length}}</h4>
+<table class="table table-success table-striped">
+    <thead>
+        <tr>
+            
+            <th>ID</th>
+
+            <th>Nombre</th>
+
+            <th>Apellido</th>
+
+            <th>E-mail</th>
+
+            <th>Profesion</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+{% for p in profesores  %}
+        <tr>
+            <td>{{ p.id  }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.apellido }}</td>
+            <td>{{ p.email }}</td>
+            <td>{{ p.profesion }}</td>
+        </tr>
+
+
+{% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock contenido %}
+    
